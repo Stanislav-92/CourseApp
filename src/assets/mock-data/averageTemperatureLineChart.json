@@ -1,0 +1,47 @@
+{
+	"title": {
+		"text": "Monthly Average Temperature"
+	},
+	"subtitle": {
+		"text": "Source: WorldClimate.com"
+	},
+	"exporting": {},
+	"chart": {
+		"type": "line"
+	},
+	"xAxis": {
+		"categories": []
+	},
+	"yAxis": {
+		"title": {
+			"text": "Temperature (°C)"
+		}
+	},
+	"plotOptions": {
+		"line": {
+			"dataLabels": {
+				"enabled": true
+			},
+			"enableMouseTracking": false
+		},
+		"series": {
+			"animation": false
+		}
+	},
+	"series": [{
+		"name": "Tokyo",
+		"turboThreshold": 0,
+		"_colorIndex": 0,
+		"_symbolIndex": 0
+	}, {
+		"name": "London",
+		"turboThreshold": 0,
+		"_colorIndex": 1,
+		"_symbolIndex": 1
+	}],
+	"data": {
+		"csv": "\"Category\";\"Tokyo\";\"London\"\n\"Jan\";7;3.9\n\"Feb\";6.9;4.2\n\"Mar\";9.5;5.7\n\"Apr\";14.5;8.5\n\"May\";18.4;11.9\n\"Jun\";21.5;15.2\n\"Jul\";25.2;17\n\"Aug\";26.5;16.6\n\"Sep\";23.3;14.2\n\"Oct\";18.3;10.3\n\"Nov\";13.9;6.6\n\"Dec\";9.6;4.8",
+		"googleSpreadsheetKey": false,
+		"googleSpreadsheetWorksheet": false
+	}
+}

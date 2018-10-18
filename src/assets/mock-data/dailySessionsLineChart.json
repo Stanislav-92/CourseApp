@@ -1,0 +1,86 @@
+{
+	"title": {
+		"text": "Daily sessions at www.highcharts.com"
+	},
+	"subtitle": {
+		"text": "Source: Google Analytics"
+	},
+	"exporting": {},
+	"chart": {
+		"scrollablePlotArea": {
+			"minWidth": 700
+		}
+	},
+	"xAxis": {
+		"tickInterval": 604800000,
+		"tickWidth": 0,
+		"gridLineWidth": 1,
+		"labels": {
+			"align": "left",
+			"x": 3,
+			"y": -3
+		}
+	},
+	"yAxis": [{
+		"title": {
+			"text": null
+		},
+		"labels": {
+			"align": "left",
+			"x": 3,
+			"y": 16,
+			"format": "{value:.,0f}"
+		},
+		"showFirstLabel": false,
+		"index": 0
+	}, {
+		"linkedTo": 0,
+		"gridLineWidth": 0,
+		"opposite": true,
+		"title": {
+			"text": null
+		},
+		"labels": {
+			"align": "right",
+			"x": -3,
+			"y": 16,
+			"format": "{value:.,0f}"
+		},
+		"showFirstLabel": false,
+		"index": 1
+	}],
+	"legend": {
+		"align": "left",
+		"verticalAlign": "top",
+		"borderWidth": 0
+	},
+	"tooltip": {
+		"shared": true,
+		"crosshairs": true
+	},
+	"plotOptions": {
+		"series": {
+			"cursor": "pointer",
+			"point": {
+				"events": {}
+			},
+			"marker": {
+				"lineWidth": 1
+			},
+			"animation": false
+		}
+	},
+	"series": [{
+		"name": "Users",
+		"_colorIndex": 0,
+		"_symbolIndex": 0,
+		"lineWidth": 4,
+		"marker": {
+			"radius": 4
+		}
+	}, {
+		"name": "Sessions",
+		"_colorIndex": 1,
+		"_symbolIndex": 1
+	}]
+}

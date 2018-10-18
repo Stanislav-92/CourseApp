@@ -1,0 +1,61 @@
+{
+	"title": {
+		"text": "World's largest cities per 2017"
+	},
+	"subtitle": {
+		"text": "Source: <a href=\"http://en.wikipedia.org/wiki/List_of_cities_proper_by_population\">Wikipedia</a>"
+	},
+	"exporting": {},
+	"chart": {
+		"type": "column"
+	},
+	"xAxis": {
+		"type": "category",
+		"labels": {
+			"rotation": -45,
+			"style": {
+				"fontSize": "13px",
+				"fontFamily": "Verdana, sans-serif"
+			}
+		}
+	},
+	"yAxis": {
+		"min": 0,
+		"title": {
+			"text": "Population (millions)"
+		}
+	},
+	"legend": {
+		"enabled": false
+	},
+	"tooltip": {
+		"pointFormat": "Population in 2017: <b>{point.y:.1f} millions</b>"
+	},
+	"series": [{
+		"name": "Population",
+		"turboThreshold": 0,
+		"_colorIndex": 0,
+		"dataLabels": {
+			"enabled": true,
+			"rotation": -90,
+			"color": "#FFFFFF",
+			"align": "right",
+			"format": "{point.y:.1f}",
+			"y": 10,
+			"style": {
+				"fontSize": "13px",
+				"fontFamily": "Verdana, sans-serif"
+			}
+		}
+	}],
+	"plotOptions": {
+		"series": {
+			"animation": false
+		}
+	},
+	"data": {
+		"csv": "\"Category\";\"Population\"\n\"Shanghai\";24.2\n\"Beijing\";20.8\n\"Karachi\";14.9\n\"Shenzhen\";13.7\n\"Guangzhou\";13.1\n\"Istanbul\";12.7\n\"Mumbai\";12.4\n\"Moscow\";12.2\n\"São Paulo\";12\n\"Delhi\";11.7\n\"Kinshasa\";11.5\n\"Tianjin\";11.2\n\"Lahore\";11.1\n\"Jakarta\";10.6\n\"Dongguan\";10.6\n\"Lagos\";10.6\n\"Bengaluru\";10.3\n\"Seoul\";9.8\n\"Foshan\";9.3\n\"Tokyo\";9.3",
+		"googleSpreadsheetKey": false,
+		"googleSpreadsheetWorksheet": false
+	}
+}
