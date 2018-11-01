@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ChartPageComponent } from './chart-page/chart-page.component';
-import { ColumnChartComponent } from './column-chart/column-chart.component';
-import { LineChartComponent } from './line-chart/line-chart.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/chart-page', pathMatch: 'full'},

@@ -7,16 +7,10 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 
 export class ColumnChartComponent implements OnInit {
-  options1: Object;
-  options2: Object;
+  @Input() chartData1;
+  @Input() chartData2;
 
   constructor() {
-    this.options1 = {
-
-    };
-    this.options2 = {
-
-    };
   }
 
   ngOnInit() {

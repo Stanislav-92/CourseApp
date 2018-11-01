@@ -5,17 +5,12 @@ import { Component, OnInit, Input } from '@angular/core';
   templateUrl: './line-chart.component.html',
   styleUrls: ['./line-chart.component.css']
 })
+
 export class LineChartComponent implements OnInit {
-  options1: Object;
-  options2: Object;
+  @Input() chartData1;
+  @Input() chartData2;
 
   constructor() {
-    this.options1 = {
-
-    };
-    this.options2 = {
-
-    };
    }
 
   ngOnInit() {
