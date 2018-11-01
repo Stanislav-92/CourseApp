@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { IColumnChart1 } from '../interfaces/col1Interface';
+import { IColumnChart2 } from '../interfaces/col2Interface';
 
 @Component({
   selector: 'app-column-chart',
@@ -7,8 +9,8 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 
 export class ColumnChartComponent implements OnInit {
-  @Input() chartData1;
-  @Input() chartData2;
+  @Input() chartData1: IColumnChart1;
+  @Input() chartData2: IColumnChart2;
 
   constructor() {
   }

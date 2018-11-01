@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { ChartModule } from 'angular2-highcharts';
 import { LineChartComponent } from './line-chart.component';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('LineChartComponent', () => {
   let component: LineChartComponent;
@@ -8,7 +9,10 @@ describe('LineChartComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LineChartComponent ]
+      declarations: [ LineChartComponent ],
+      imports: [
+        ChartModule, RouterTestingModule
+      ]
     })
     .compileComponents();
   }));

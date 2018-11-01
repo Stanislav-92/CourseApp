@@ -1,24 +1,24 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { ChartModule } from 'angular2-highcharts';
-import { ColumnChartComponent } from './column-chart.component';
+
+import { DataGridPageComponent } from './data-grid-page.component';
 import { RouterTestingModule } from '@angular/router/testing';
 
-describe('ColumnChartComponent', () => {
-  let component: ColumnChartComponent;
-  let fixture: ComponentFixture<ColumnChartComponent>;
+describe('DataGridPageComponent', () => {
+  let component: DataGridPageComponent;
+  let fixture: ComponentFixture<DataGridPageComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ColumnChartComponent ],
+      declarations: [ DataGridPageComponent ],
       imports: [
-        ChartModule, RouterTestingModule
+        RouterTestingModule
       ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ColumnChartComponent);
+    fixture = TestBed.createComponent(DataGridPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

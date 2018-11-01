@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ChartPageComponent } from './chart-page.component';
 
 describe('ChartPageComponent', () => {
@@ -8,7 +8,8 @@ describe('ChartPageComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ChartPageComponent ]
+      declarations: [ ChartPageComponent ],
+      schemas: [ NO_ERRORS_SCHEMA ]
     })
     .compileComponents();
   }));
