@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ChartModule } from 'angular2-highcharts';
 import { LineChartComponent } from './line-chart.component';
 import { RouterTestingModule } from '@angular/router/testing';
+import { HighchartsStatic, HighchartsService } from 'angular2-highcharts/dist/HighchartsService';
 
 describe('LineChartComponent', () => {
   let component: LineChartComponent;
@@ -12,7 +13,8 @@ describe('LineChartComponent', () => {
       declarations: [ LineChartComponent ],
       imports: [
         ChartModule, RouterTestingModule
-      ]
+      ],
+      providers: [HighchartsService, HighchartsStatic]
     })
     .compileComponents();
   }));
