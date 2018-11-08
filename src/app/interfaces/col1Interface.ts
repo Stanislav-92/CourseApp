@@ -1,40 +1,16 @@
-export interface IColumnChart1 {
-  title: Title;
-  subtitle: Subtitle;
-  chart: Chart;
-  chartID: ChartID;
-  xAxis: XAxis;
-  yAxis: YAxis;
+import { IColumnChart2 } from '../interfaces/col2Interface';
+
+export interface IColumnChart1 extends IColumnChart2 {
+  xAxis1: XAxis1;
   tooltip: Tooltip;
-  plotOptios: PlotOptions;
-  series: SeriesItem[];
-  data: Data;
+  plotOptions1: PlotOptions1;
+  months: string[];
+  series1: SeriesItem1[];
 }
 
-export interface Title {
-  text: string;
-}
-
-export interface Subtitle {
-  text: string;
-}
-
-export interface Chart {
-  type: string;
-}
-
-export interface ChartID {
-  value: string;
-}
-
-export interface XAxis {
+export interface XAxis1 {
   categories: any[];
   crosshair: boolean;
-}
-
-export interface YAxis {
-  min: number;
-  title: Title;
 }
 
 export interface Tooltip {
@@ -45,7 +21,7 @@ export interface Tooltip {
   useHTML: boolean;
 }
 
-export interface PlotOptions {
+export interface PlotOptions1 {
   column: Column;
   series: Series;
 }
@@ -60,14 +36,8 @@ export interface Series {
   pointstart: number;
 }
 
-export interface SeriesItem {
+export interface SeriesItem1 {
   name: string;
   data: number[];
   visible?: boolean;
-}
-
-export interface Data {
-  csv: string;
-  googleSpreadsheetKey: boolean;
-  googleSpreadsheetWorksheet: boolean;
 }

@@ -1,40 +1,22 @@
-export interface ILineChart1 {
-  title: Title;
-  subtitle: Subtitle;
+import { ILineChart2 } from '../interfaces/line2Interface';
+
+export interface ILineChart1 extends ILineChart2 {
   chart: Chart;
-  chartID: ChartID;
   xAxis: XAxis;
-  yAxis: YAxis;
-  plotOptions: PlotOptions;
-  series: SeriesItem[];
+  plotOptions1: PlotOptions1;
+  series1: SeriesItem1[];
   data: Data;
-}
-
-export interface Title {
-  text: string;
-}
-
-export interface Subtitle {
-  text: string;
 }
 
 export interface Chart {
   type: string;
 }
 
-export interface ChartID {
-  value: string;
-}
-
 export interface XAxis {
   categories: any[];
 }
 
-export interface YAxis {
-  title: Title;
-}
-
-export interface PlotOptions {
+export interface PlotOptions1 {
   line: Line;
   series: Series;
 }
@@ -53,7 +35,7 @@ export interface Series {
   pointStart: number;
 }
 
-export interface SeriesItem {
+export interface SeriesItem1 {
   name: string;
   data: number[];
 }

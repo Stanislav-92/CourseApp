@@ -1,4 +1,9 @@
 <div class="wrapper">
   <h2>Data Grid Page</h2>
+  <app-table-average-rain-column-chart [tableData]="tableData" *ngIf="tableData?.chartID.value === 'col1'" ></app-table-average-rain-column-chart>
+  <app-table-cities-column-chart [tableData]="tableData" *ngIf="tableData?.chartID.value === 'col2'"></app-table-cities-column-chart>
+  <app-table-temperature-line-chart [tableData]="tableData" *ngIf="tableData?.chartID.value === 'line1'"></app-table-temperature-line-chart>
+  <app-table-solar-line-chart [tableData]="tableData" *ngIf="tableData?.chartID.value === 'line2'"></app-table-solar-line-chart>
 </div>
+
 <button class="returnBtn" (click)="goBack()">Go back</button>

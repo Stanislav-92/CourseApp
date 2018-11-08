@@ -1,4 +1,24 @@
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
 .highcharts-credits {
   display: none;
 }
 
+table {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+table {
+  text-align: left;
+}
+
+p {
+  font-size: 20px;
+  font-weight: bold;
+}
