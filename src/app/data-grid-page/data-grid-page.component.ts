@@ -2,6 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { ChartPageService } from '../chart-page.service';
+import { ParserService } from '../parser.service';
+import { col1 } from '../constants';
+import { col2 } from '../constants';
+import { line1 } from '../constants';
+import { line2 } from '../constants';
+import { IMain } from '../interfaces/mainInterface';
 
 @Component({
   selector: 'app-data-grid-page',
@@ -9,34 +15,29 @@ import { ChartPageService } from '../chart-page.service';
   styleUrls: ['./data-grid-page.component.css']
 })
 
-
-
 export class DataGridPageComponent implements OnInit {
-  tableData: any;
+  tableData: IMain;
 
   constructor(
     private location: Location,
     private route: ActivatedRoute,
-    private chartPageService: ChartPageService
+    private chartPageService: ChartPageService,
+    private parseService: ParserService
     ) { }
 
   ngOnInit() {
     const keyId = this.route.snapshot.paramMap.get('id');
     switch (keyId) {
-      case 'col1':
-        console.log('first column chart');
+      case col1:
         this.getData('getColumn1');
         break;
-      case 'col2':
-        console.log('second column chart');
+      case col2:
         this.getData('getColumn2');
         break;
-      case 'line1':
-        console.log('first line chart');
+      case line1:
         this.getData('getLine1');
         break;
-      case 'line2':
-        console.log('second line chart');
+      case line2:
         this.getData('getLine2');
         break;
       default:
@@ -46,12 +47,16 @@ export class DataGridPageComponent implements OnInit {
 
   goBack() {
     this.location.back();
+    this.parseService.colRain = [];
+    this.parseService.colCities = [];
+    this.parseService.lineTemp = [];
+    this.parseService.lineSolar = [];
   }
 
   getData(prop) {
     this.chartPageService[prop]().subscribe(receivedData => {
       this.tableData = receivedData;
-      console.log(this.tableData); });
+      this.parseService.parseData(this.tableData); });
   }
 
 }

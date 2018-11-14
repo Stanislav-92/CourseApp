@@ -2,10 +2,10 @@ export interface ILineChart2 {
   title: Title;
   subtitle: Subtitle;
   chartID: ChartID;
-  yAxis: YAxis;
-  legend: Legend;
-  plotOptions: PlotOptions;
-  series: SeriesItem[];
+  yAxisLine: YAxis;
+  legendLine: Legend;
+  plotOptionsLine: PlotOptions;
+  seriesLine: SeriesItem[];
   responsive: Responsive;
 }
 

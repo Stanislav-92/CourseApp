@@ -1,11 +1,11 @@
 import { IColumnChart2 } from '../interfaces/col2Interface';
 
 export interface IColumnChart1 extends IColumnChart2 {
-  xAxis1: XAxis1;
+  xAxis1Col: XAxis1;
   tooltip: Tooltip;
-  plotOptions1: PlotOptions1;
+  plotOptions1Col: PlotOptions1;
   months: string[];
-  series1: SeriesItem1[];
+  series1Col: SeriesItem1[];
 }
 
 export interface XAxis1 {
