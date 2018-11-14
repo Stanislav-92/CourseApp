@@ -1,43 +1,55 @@
 import { Injectable } from '@angular/core';
-import { col1 } from './constants';
-import { col2 } from './constants';
-import { line1 } from './constants';
-import { line2 } from './constants';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ParserService {
 
-  // Creating 4 arrays for material table to hold parsed data
-  colRain = [];
-  colCities = [];
-  lineTemp = [];
-  lineSolar = [];
-
-  // Parsing received data into arrays depending of the chart type
   parseData(data) {
     console.log(data);
 
-    switch (data.chartID.value) {
-      case col1:
-        console.log(this.colRain);
-        break;
-      case col2:
-        this.colCities.push(data.title);
-        console.log(this.colCities);
-        break;
-      case line1:
-        this.lineTemp.push(data.title);
-        console.log(this.lineTemp);
-        break;
-      case line2:
-        this.lineSolar.push(data.title);
-        console.log(this.lineSolar);
-        break;
-      default:
-        console.log('zzzz');
-    }
+    const displayedColumns = ['month', 'if', 'tokyo', 'ny', 'london', 'berlin'];
+    const dataSource = data.months.map(item => ({month: item}));
+
+    // const dataSource1 = data.series[0].data.map(item => ({if: item}));
+    // const dataSource2 = data.series[1].data.map(item => ({tokyo: item}));
+    // const dataSource3 = data.series[2].data.map(item => ({ny: item}));
+    // const dataSource4 = data.series[3].data.map(item => ({london: item}));
+    // const dataSource5 = data.series[4].data.map(item => ({berlin: item}));
+
+    console.log(dataSource);
+
+    const preparedColumns = [
+      {
+        id: 'month',
+        name: 'Months'
+      },
+      {
+        id: 'if',
+        name: 'Ivano-Frankivsk'
+      },
+      {
+        id: 'tokyo',
+        name: 'Tokyo'
+      },
+      {
+        id: 'ny',
+        name: 'New York'
+      },
+      {
+        id: 'london',
+        name: 'London'
+      },
+      {
+        id: 'berlin',
+        name: 'Berlin'
+      }
+    ];
+    console.log(preparedColumns);
+
+    return {
+      displayedColumns, preparedColumns, dataSource
+    };
 
   }
 

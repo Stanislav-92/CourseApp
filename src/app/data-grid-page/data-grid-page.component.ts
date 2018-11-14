@@ -17,6 +17,7 @@ import { IMain } from '../interfaces/mainInterface';
 
 export class DataGridPageComponent implements OnInit {
   tableData: IMain;
+  parsedData;
 
   constructor(
     private location: Location,
@@ -47,16 +48,13 @@ export class DataGridPageComponent implements OnInit {
 
   goBack() {
     this.location.back();
-    this.parseService.colRain = [];
-    this.parseService.colCities = [];
-    this.parseService.lineTemp = [];
-    this.parseService.lineSolar = [];
   }
 
   getData(prop) {
     this.chartPageService[prop]().subscribe(receivedData => {
       this.tableData = receivedData;
-      this.parseService.parseData(this.tableData); });
+      this.parsedData = this.parseService.parseData(this.tableData);
+    });
   }
 
 }

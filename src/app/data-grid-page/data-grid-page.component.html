@@ -1,6 +1,6 @@
 <div class="wrapper">
   <h2>Data Grid Page</h2>
-  <app-data-grid></app-data-grid>
+  <app-data-grid [data]="parsedData" *ngIf="parsedData"></app-data-grid>
 </div>
 
 <button class="returnBtn" (click)="goBack()">Go back</button>
