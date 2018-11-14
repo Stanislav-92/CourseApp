@@ -10,11 +10,7 @@ import { LineChartComponent } from './line-chart/line-chart.component';
 import { AppRoutingModule } from './app-routing.module';
 import { DataGridPageComponent } from './data-grid-page/data-grid-page.component';
 import { MaterialModule } from './material.module';
-import { TableAverageRainColumnChartComponent
-} from './data-grid-page/table-average-rain-column-chart/table-average-rain-column-chart.component';
-import { TableTemperatureLineChartComponent } from './data-grid-page/table-temperature-line-chart/table-temperature-line-chart.component';
-import { TableSolarLineChartComponent } from './data-grid-page/table-solar-line-chart/table-solar-line-chart.component';
-import { TableCitiesColumnChartComponent } from './data-grid-page/table-cities-column-chart/table-cities-column-chart.component';
+import { DataGridComponent } from './data-grid-page/data-grid/data-grid.component';
 
 declare var require: any;
 
@@ -25,10 +21,7 @@ declare var require: any;
     ColumnChartComponent,
     LineChartComponent,
     DataGridPageComponent,
-    TableAverageRainColumnChartComponent,
-    TableTemperatureLineChartComponent,
-    TableSolarLineChartComponent,
-    TableCitiesColumnChartComponent
+    DataGridComponent
   ],
   imports: [
     BrowserModule,

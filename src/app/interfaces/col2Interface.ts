@@ -3,12 +3,12 @@ export interface IColumnChart2 {
   subtitle: Subtitle;
   chart: Chart;
   chartID: ChartID;
-  xAxis: XAxis;
-  yAxis: YAxis;
-  legend: Legend;
+  xAxisCol: XAxis;
+  yAxisCol: YAxis;
+  legendCol: Legend;
   tooltip: Tooltip;
-  series: SeriesItem[];
-  plotOptions: PlotOptions;
+  seriesCol: SeriesItem[];
+  plotOptionsCol: PlotOptions;
   data: Data;
 }
 

@@ -2,9 +2,9 @@ import { ILineChart2 } from '../interfaces/line2Interface';
 
 export interface ILineChart1 extends ILineChart2 {
   chart: Chart;
-  xAxis: XAxis;
-  plotOptions1: PlotOptions1;
-  series1: SeriesItem1[];
+  xAxis1Line: XAxis;
+  plotOptions1Line: PlotOptions1;
+  series1Line: SeriesItem1[];
   data: Data;
 }
 

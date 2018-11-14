@@ -4,6 +4,10 @@
   display: none;
 }
 
+.highcharts-series-group {
+  cursor: pointer;
+}
+
 table {
   width: 60%;
   margin: 0 auto;

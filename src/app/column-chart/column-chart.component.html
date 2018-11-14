@@ -1,6 +1,6 @@
 <h2>Column charts</h2>
 <div class="container">
-  <chart [options]="chartData1" class="col1">
+  <chart [options]="chartData1" class="col1" (load)="onChartLoad($event)">
     <series [routerLink]="['/data-grid-page', chartData1?.chartID.value]"></series>
   </chart>
   <chart [options]="chartData2" class="col2">
