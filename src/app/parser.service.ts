@@ -1,59 +1,82 @@
 import { Injectable } from '@angular/core';
+import { col2 } from './constants';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class ParserService {
 
   parseData(data) {
-    console.log(data);
 
-    const displayedColumns = ['month', 'if', 'tokyo', 'ny', 'london', 'berlin'];
-    const dataSource = data.months.map(item => ({month: item}));
+    // Declaring constants to hold data needed fot tables
+    const dataSource = [];
+    const displayedColumns = [];
+    const preparedColumns = [];
 
-    // const dataSource1 = data.series[0].data.map(item => ({if: item}));
-    // const dataSource2 = data.series[1].data.map(item => ({tokyo: item}));
-    // const dataSource3 = data.series[2].data.map(item => ({ny: item}));
-    // const dataSource4 = data.series[3].data.map(item => ({london: item}));
-    // const dataSource5 = data.series[4].data.map(item => ({berlin: item}));
+    if (data.chartID.value === col2) {  // Parsing data received from second column chart
 
-    console.log(dataSource);
-
-    const preparedColumns = [
-      {
-        id: 'month',
-        name: 'Months'
-      },
-      {
-        id: 'if',
-        name: 'Ivano-Frankivsk'
-      },
-      {
-        id: 'tokyo',
-        name: 'Tokyo'
-      },
-      {
-        id: 'ny',
-        name: 'New York'
-      },
-      {
-        id: 'london',
-        name: 'London'
-      },
-      {
-        id: 'berlin',
-        name: 'Berlin'
+      // Looping through array of values needed for dataSource array of objects creation
+      for (let i = 0; i < data.series[0].data.length; i++) {
+        const row = {
+          city: data.series[0].data[i][0], population: data.series[0].data[i][1]
+        };
+        dataSource.push(row);
       }
-    ];
-    console.log(preparedColumns);
 
-    return {
-      displayedColumns, preparedColumns, dataSource
-    };
+      // Looping through newly created dataSource array and creating displayedColumns array
+      for (const key in dataSource[0]) {
+        if (dataSource[0].hasOwnProperty(key)) {
+          displayedColumns.push(key);
+        }
+      }
 
+      // Looping through newly created displayedColumns array and creating preparedColumns array of objects
+      for (const entry of displayedColumns) {
+        preparedColumns.push({id: entry});
+      }
+
+      // Returning created data for usage in child DataGridComponent
+      return {
+        dataSource,
+        displayedColumns,
+        preparedColumns
+      };
+
+    } else {  // Parsing data received from first column and both line charts
+
+      // Looping through array of values needed for dataSource array of objects creation
+      for (let i = 0; i < data.category.length; i++) {
+        const row = {
+          category: data.category[i]
+        };
+        for (let j = 0; j < data.series.length; j++) {
+          row[data.series[j].name] = data.series[j].data[i];
+        }
+        dataSource.push(row);
+      }
+
+      // Looping through newly created dataSource array and creating displayedColumns array
+      for (const key in dataSource[0]) {
+        if (dataSource[0].hasOwnProperty(key)) {
+          displayedColumns.push(key);
+        }
+      }
+
+      // Looping through newly created displayedColumns array and creating preparedColumns array of objects
+      for (const entry of displayedColumns) {
+        preparedColumns.push({id: entry});
+      }
+
+      // Returning created data for usage in child DataGridComponent
+      return {
+        dataSource,
+        displayedColumns,
+        preparedColumns
+      };
+
+    }
   }
-
-
 
   constructor() { }
 }

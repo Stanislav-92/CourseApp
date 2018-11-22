@@ -11,7 +11,6 @@ export class DataGridComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-
   }
 
 }
