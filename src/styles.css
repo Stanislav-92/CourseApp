@@ -22,6 +22,20 @@ table {
   text-align: left;
 }
 
+.mat-column-category, .mat-column-city, .mat-column-population {
+  text-transform: capitalize;
+}
+
+.mat-header-cell {
+  color: brown;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+}
+
+.mat-cell {
+  color: black;
+}
+
 p {
   font-size: 20px;
   font-weight: bold;

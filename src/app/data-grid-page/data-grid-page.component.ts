@@ -7,7 +7,6 @@ import { col1 } from '../constants';
 import { col2 } from '../constants';
 import { line1 } from '../constants';
 import { line2 } from '../constants';
-import { IMain } from '../interfaces/mainInterface';
 
 @Component({
   selector: 'app-data-grid-page',
@@ -16,7 +15,6 @@ import { IMain } from '../interfaces/mainInterface';
 })
 
 export class DataGridPageComponent implements OnInit {
-  tableData: IMain;
   parsedData;
 
   constructor(
@@ -46,15 +44,14 @@ export class DataGridPageComponent implements OnInit {
     }
   }
 
-  goBack() {
-    this.location.back();
-  }
-
   getData(prop) {
     this.chartPageService[prop]().subscribe(receivedData => {
-      this.tableData = receivedData;
-      this.parsedData = this.parseService.parseData(this.tableData);
+      this.parsedData = this.parseService.parseData(receivedData);
     });
+  }
+
+  goBack() {
+    this.location.back();
   }
 
 }
