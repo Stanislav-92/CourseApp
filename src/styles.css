@@ -22,7 +22,7 @@ table {
   text-align: left;
 }
 
-.mat-column-category, .mat-column-city, .mat-column-population {
+.mat-sort-header-button {
   text-transform: capitalize;
 }
 

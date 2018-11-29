@@ -21,7 +21,7 @@ export class DataGridPageComponent implements OnInit {
     private location: Location,
     private route: ActivatedRoute,
     private chartPageService: ChartPageService,
-    private parseService: ParserService
+    private parserService: ParserService
     ) { }
 
   ngOnInit() {
@@ -46,7 +46,7 @@ export class DataGridPageComponent implements OnInit {
 
   getData(prop) {
     this.chartPageService[prop]().subscribe(receivedData => {
-      this.parsedData = this.parseService.parseData(receivedData);
+      this.parsedData = this.parserService.parseData(receivedData);
     });
   }
 
