@@ -18,13 +18,4 @@ export class ColumnChartComponent implements OnInit {
   ngOnInit() {
   }
 
-  onChartLoad(event) {
-    const legend = event.context.legend;
-    legend.onclick = (lEvent) => this.onLegendTitleClick(event);
-  }
-
-  onLegendTitleClick(event) {
-    console.log(event);
-  }
-
 }

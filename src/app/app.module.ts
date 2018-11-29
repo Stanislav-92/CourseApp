@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { DataGridPageComponent } from './data-grid-page/data-grid-page.component';
 import { MaterialModule } from './material.module';
 import { DataGridComponent } from './data-grid-page/data-grid/data-grid.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 declare var require: any;
 
@@ -29,6 +30,7 @@ declare var require: any;
     HttpClientModule,
     AppRoutingModule,
     MaterialModule,
+    BrowserAnimationsModule,
     ChartModule.forRoot(require('highcharts'))
   ],
   providers: [],

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { col2 } from './constants';
+import { MatTableDataSource } from '@angular/material';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,6 @@ import { col2 } from './constants';
 export class ParserService {
 
   parseData(data) {
-
     // Declaring constants to hold data needed fot tables
     const dataSource = [];
     const displayedColumns = [];
@@ -35,12 +35,12 @@ export class ParserService {
       for (const entry of displayedColumns) {
         preparedColumns.push({id: entry});
       }
-
       // Returning created data for usage in child DataGridComponent
       return {
-        dataSource,
+        tableData: new MatTableDataSource(dataSource),
         displayedColumns,
-        preparedColumns
+        preparedColumns,
+        data
       };
 
     } else {  // Parsing data received from first column and both line charts
@@ -70,9 +70,10 @@ export class ParserService {
 
       // Returning created data for usage in child DataGridComponent
       return {
-        dataSource,
+        tableData: new MatTableDataSource(dataSource),
         displayedColumns,
-        preparedColumns
+        preparedColumns,
+        data
       };
 
     }
