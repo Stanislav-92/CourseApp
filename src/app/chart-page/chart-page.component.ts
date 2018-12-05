@@ -15,6 +15,8 @@ export class ChartPageComponent implements OnInit {
   columnData2: IColumnChart2;
   lineData1: ILineChart1;
   lineData2: ILineChart2;
+  wasHovered = false;
+  pointInfo;
 
   constructor(private chartPageService: ChartPageService) { }
 
@@ -23,6 +25,15 @@ export class ChartPageComponent implements OnInit {
     this.chartPageService.getColumn2().subscribe(receivedData => this.columnData2 = receivedData);
     this.chartPageService.getLine1().subscribe(receivedData => this.lineData1 = receivedData);
     this.chartPageService.getLine2().subscribe(receivedData => this.lineData2 = receivedData);
+  }
+
+  onSeriesHoverOver(tooltip) {
+    this.wasHovered = true;
+    this.pointInfo = tooltip;
+  }
+
+  closeTooltip() {
+    this.wasHovered = false;
   }
 
 }

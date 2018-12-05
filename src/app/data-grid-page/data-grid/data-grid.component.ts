@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
-import { MatSort } from '@angular/material';
+import { MatSort, MatSortable } from '@angular/material';
 import { SortingService } from '../../sorting.service';
 
 @Component({
@@ -10,21 +10,25 @@ import { SortingService } from '../../sorting.service';
 export class DataGridComponent implements OnInit {
   @Input() data;
   @ViewChild(MatSort) sort: MatSort;
-  savedData;
-  retrievedData;
 
   constructor(
     private sortingService: SortingService
   ) { }
 
   ngOnInit() {
-    this.data.tableData.sort = this.sort;
+    const sortConfigInSession = this.sortingService.getConfig();
+    if (sortConfigInSession) {
+     // Apply sorting from session storage
+      this.sort.sort(<MatSortable>({id: sortConfigInSession.active, start: sortConfigInSession.direction}));
+      this.data.tableData.sort = this.sort;
+    } else {
+      // Apply default sorting
+      this.data.tableData.sort = this.sort;
+    }
   }
 
   onSortData(sortedData) {
-    console.log(sortedData);
-    this.savedData = this.sortingService.saveConfig(sortedData);
-    this.retrievedData = this.sortingService.getConfig();
+    this.sortingService.saveConfig(sortedData);
   }
 
 }

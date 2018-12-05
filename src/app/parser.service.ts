@@ -35,6 +35,7 @@ export class ParserService {
       for (const entry of displayedColumns) {
         preparedColumns.push({id: entry});
       }
+
       // Returning created data for usage in child DataGridComponent
       return {
         tableData: new MatTableDataSource(dataSource),

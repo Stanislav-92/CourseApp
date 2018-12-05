@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { IColumnChart1 } from '../interfaces/col1Interface';
 import { IColumnChart2 } from '../interfaces/col2Interface';
 
@@ -11,11 +11,18 @@ import { IColumnChart2 } from '../interfaces/col2Interface';
 export class ColumnChartComponent implements OnInit {
   @Input() chartData1: IColumnChart1;
   @Input() chartData2: IColumnChart2;
+  @Input() wasHovered: boolean;
+  @Input() pointInfo;
+  @Output() seriesHoverOver = new EventEmitter<{context: Object, originalEvent: Object}>();
 
   constructor() {
   }
 
   ngOnInit() {
+  }
+
+  onSeriesMouseOver(event: {context: Object, originalEvent: Object}) {
+    this.seriesHoverOver.emit(event);
   }
 
 }

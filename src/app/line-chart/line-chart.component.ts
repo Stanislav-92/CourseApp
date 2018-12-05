@@ -11,6 +11,8 @@ import { ILineChart2 } from '../interfaces/line2Interface';
 export class LineChartComponent implements OnInit {
   @Input() chartData1: ILineChart1;
   @Input() chartData2: ILineChart2;
+  @Input() wasHovered: boolean;
+  @Input() pointInfo;
 
   constructor() {
   }

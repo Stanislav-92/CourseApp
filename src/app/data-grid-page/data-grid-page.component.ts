@@ -45,9 +45,7 @@ export class DataGridPageComponent implements OnInit {
   }
 
   getData(prop) {
-    this.chartPageService[prop]().subscribe(receivedData => {
-      this.parsedData = this.parserService.parseData(receivedData);
-    });
+    this.chartPageService[prop]().subscribe(receivedData => this.parsedData = this.parserService.parseData(receivedData));
   }
 
   goBack() {
