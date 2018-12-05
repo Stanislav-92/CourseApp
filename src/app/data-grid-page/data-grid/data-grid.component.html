@@ -1,11 +1,13 @@
 <p>{{ data.data.title.text }}</p>
+
 <table mat-table [dataSource]="data.tableData" matSort class="mat-elevation-z8" (matSortChange)="onSortData($event)">
 
   <ng-container [matColumnDef]="item.id" *ngFor="let item of data.preparedColumns">
     <th mat-header-cell *matHeaderCellDef mat-sort-header> {{item.id}} </th>
-    <td mat-cell *matCellDef="let element"> {{element[item.id]}} </td>
+    <td mat-cell *matCellDef="let element"> {{ (data.data.title.text === 'Monthly Average Rainfall') ? (element[item.id] | tablepipe) : element[item.id]}} </td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="data.displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: data.displayedColumns;"></tr>
+  
 </table>

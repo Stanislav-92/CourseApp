@@ -1,6 +1,19 @@
 <div class="wrapper">
   <h2>Chart page</h2>
-  <app-column-chart [chartData1]="columnData1" [chartData2]="columnData2"></app-column-chart>
+  <div class="tooltip" *ngIf="wasHovered" (click)="closeTooltip()">
+    <p>{{ pointInfo.context.x }}</p>
+    <p>{{ pointInfo.context.series.name }}: {{ pointInfo.context.y }} mm</p>
+  </div>
+  <app-column-chart [chartData1]="columnData1" 
+                    [chartData2]="columnData2" 
+                    [wasHovered]="wasHovered"
+                    [pointInfo]="pointInfo"
+                    (seriesHoverOver)="onSeriesHoverOver($event)">
+                    </app-column-chart>
   <hr>
-  <app-line-chart [chartData1]="lineData1" [chartData2]="lineData2"></app-line-chart>
+  <app-line-chart [chartData1]="lineData1" 
+                  [chartData2]="lineData2"
+                  [wasHovered]="wasHovered"
+                  [pointInfo]="pointInfo">
+                  </app-line-chart>
 </div>

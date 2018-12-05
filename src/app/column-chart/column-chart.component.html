@@ -1,7 +1,13 @@
 <h2>Column charts</h2>
 <div class="container">
+  <div class="tooltip" *ngIf="wasHovered">
+    <p>{{ pointInfo.context.x }}</p>
+    <p>{{ pointInfo.context.series.name }}: {{ pointInfo.context.y }} mm</p>
+  </div>
   <chart [options]="chartData1" class="col1">
-    <series [routerLink]="['/data-grid-page', chartData1?.chartID.value]"></series>
+    <series [routerLink]="['/data-grid-page', chartData1?.chartID.value]">
+      <point (mouseOver)="onSeriesMouseOver($event)"></point>
+    </series>
   </chart>
   <chart [options]="chartData2" class="col2">
     <series [routerLink]="['/data-grid-page', chartData2?.chartID.value]"></series>
