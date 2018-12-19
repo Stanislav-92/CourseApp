@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2" id="formWrapper">
+    <h4>User form</h4>
+    <form (ngSubmit)="onSubmit()" #form="ngForm">
+      <div class="form-group">
+        <label for="firstname">First Name:</label>
+        <input class="form-control" type="text" id="firstname" ngModel name="firstname" required #fname="ngModel" [ngClass]="{'invalid': !allowSubmit}">
+        <span class="text-muted" *ngIf="!fname.valid && fname.touched">Please enter your first name!</span>
+      </div>
+
+      <div class="form-group">
+        <label for="lastname">Last Name:</label>
+        <input class="form-control" type="text" id="lastname" ngModel name="lastname" required #lname="ngModel" [ngClass]="{'invalid': !allowSubmit}">
+        <span class="text-muted" *ngIf="!lname.valid && lname.touched">Please enter your second name!</span>
+      </div>
+
+      <div class="form-group">
+        <label for="email">E-mail:</label>
+        <input class="form-control" type="email" id="email" ngModel name="email" email required #email="ngModel" [ngClass]="{'invalid': !allowSubmit}">
+        <span class="text-muted" *ngIf="!email.valid && email.touched">Please enter a valid email!</span>
+      </div>
+
+      <div class="form-group">Gender:<br>
+        <div *ngFor="let gender of genders" class="form-check form-check-inline">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" [value]="gender" ngModel name="gender">{{ gender }}
+          </label>
+        </div>
+      </div>
+      
+
+      <div class="form-group">Select your favorite color:<br>
+        <div *ngFor="let color of colors" class="form-check form-check-inline">
+          <label class="checkbox-inline">
+            <input class="form-check-input" type="checkbox" ngModel name="color">{{ color }}
+          </label>
+        </div>
+      </div>
+
+      <div class="error">
+        <span *ngIf="!allowSubmit">*The form can't be submitted, as some field(s) is incorrectly filled in, please try again</span>
+      </div>
+
+      <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+  </div>
+</div>
+
+
+
+
+
+

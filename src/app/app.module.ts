@@ -13,6 +13,7 @@ import { MaterialModule } from './material.module';
 import { DataGridComponent } from './data-grid-page/data-grid/data-grid.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RainfallMetricsPipe } from './pipes/rainfall-metrics.pipe';
+import { FormPageComponent } from './form-page/form-page.component';
 
 declare var require: any;
 
@@ -24,7 +25,8 @@ declare var require: any;
     LineChartComponent,
     DataGridPageComponent,
     DataGridComponent,
-    RainfallMetricsPipe
+    RainfallMetricsPipe,
+    FormPageComponent
   ],
   imports: [
     BrowserModule,
