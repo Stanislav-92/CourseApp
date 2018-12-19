@@ -1,0 +1,41 @@
+.container {
+  margin-top: 25px;
+}
+
+.error {
+  margin-bottom: 30px;
+}
+
+.error span {
+  font-weight: bold;
+  font-style: italic;
+  color: #ff0000;
+}
+
+#formWrapper {
+  margin: 0 auto;
+}
+
+label {
+  cursor: pointer;
+}
+
+.form-check-inline .form-check-input {
+  position: relative;
+  top: 2px;
+}
+
+input.ng-valid {
+  border: 1px solid #ced4da;
+}
+
+input.ng-invalid.ng-touched, .invalid {
+  border: 1px solid #ff0000;
+}
+
+h4 {
+  color: brown;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-bottom: 30px;
+  text-align: center;
+}

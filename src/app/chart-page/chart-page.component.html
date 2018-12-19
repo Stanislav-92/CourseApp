@@ -1,6 +1,6 @@
 <div class="wrapper">
-  <h2>Chart page</h2>
-  <div class="tooltip" *ngIf="wasHovered" (click)="closeTooltip()">
+  <h3>Chart page</h3>
+  <div class="tooltipInfo" *ngIf="wasHovered" (click)="closeTooltip()">
     <p>{{ pointInfo.context.x }}</p>
     <p>{{ pointInfo.context.series.name }}: {{ pointInfo.context.y }} mm</p>
   </div>
