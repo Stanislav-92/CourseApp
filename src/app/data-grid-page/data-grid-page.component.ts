@@ -7,6 +7,8 @@ import { col1 } from '../constants';
 import { col2 } from '../constants';
 import { line1 } from '../constants';
 import { line2 } from '../constants';
+import { FormDataService } from '../form-page/form-data.service';
+import { IFormData } from '../interfaces/formDataInterface';
 
 @Component({
   selector: 'app-data-grid-page',
@@ -16,12 +18,14 @@ import { line2 } from '../constants';
 
 export class DataGridPageComponent implements OnInit {
   parsedData;
+  userData: IFormData;
 
   constructor(
     private location: Location,
     private route: ActivatedRoute,
     private chartPageService: ChartPageService,
-    private parserService: ParserService
+    private parserService: ParserService,
+    private formDataService: FormDataService
     ) { }
 
   ngOnInit() {
@@ -42,6 +46,8 @@ export class DataGridPageComponent implements OnInit {
       default:
         alert('Unavailable');
     }
+
+    this.userData = this.formDataService.formData;
   }
 
   getData(prop) {

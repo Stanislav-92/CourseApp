@@ -68,3 +68,11 @@ p {
 button {
   margin-right: 5px;
 }
+
+.userTable {
+  width: 25%;
+}
+
+.userTable td {
+  border: 1px solid #fff;
+}

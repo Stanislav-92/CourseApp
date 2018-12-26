@@ -1,6 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { NgForm } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormDataService } from './form-data.service';
 
 @Component({
   selector: 'app-form-page',
@@ -11,15 +12,24 @@ export class FormPageComponent implements OnInit {
   genders = ['Male', 'Female', 'Other'];
   colors = ['Black', 'Red', 'Green', 'Violet', 'Blue', 'Yellow', 'Other'];
   allowSubmit = true;
-  @ViewChild('form') userForm: NgForm;
+  userForm: FormGroup;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private formDataService: FormDataService) { }
 
   ngOnInit() {
+    this.userForm = new FormGroup({
+      'firstname': new FormControl(null, Validators.required),
+      'lastname': new FormControl(null, Validators.required),
+      'email': new FormControl(null, [Validators.required, Validators.email]),
+      'gender': new FormControl(null),
+      'color': new FormControl(null)
+      }
+    );
   }
 
   onSubmit() {
     if (this.userForm.valid) {
+      this.formDataService.saveFormData(this.userForm.value);
       this.router.navigate(['/chart-page']);
     } else {
       this.allowSubmit = false;

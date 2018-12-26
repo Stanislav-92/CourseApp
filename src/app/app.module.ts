@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { ChartModule } from 'angular2-highcharts';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { ChartPageComponent } from './chart-page/chart-page.component';
 import { ColumnChartComponent } from './column-chart/column-chart.component';
@@ -31,6 +31,7 @@ declare var require: any;
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
     MaterialModule,

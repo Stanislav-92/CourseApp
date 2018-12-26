@@ -2,7 +2,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { DataGridComponent } from './data-grid.component';
 import { RainfallMetricsPipe } from '../../pipes/rainfall-metrics.pipe';
-import { MatTableModule } from '@angular/material';
+import { MatTableModule, MatTableDataSource } from '@angular/material';
+import { dataCol1 } from 'src/app/constants';
 
 describe('DataGridComponent', () => {
   let component: DataGridComponent;
@@ -20,6 +21,12 @@ describe('DataGridComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(DataGridComponent);
     component = fixture.componentInstance;
+    component.data = {
+      tableData: new MatTableDataSource(),
+      data: dataCol1,
+      displayedColumns: [],
+      preparedColumns: []
+    };
     fixture.detectChanges();
   });
 
