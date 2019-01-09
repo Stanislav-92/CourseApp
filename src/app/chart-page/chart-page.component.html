@@ -1,42 +1,19 @@
 <div class="wrapper">
   <h3>Chart page</h3>
-  <table *ngIf="userData" class="table table-dark userTable">
-    <tbody>
-      <tr>
-        <td>First Name</td>
-        <td>{{ userData.firstname }}</td>
-      </tr>
-      <tr>
-        <td>Last Name</td>
-        <td>{{ userData.lastname }}</td>
-      </tr>
-      <tr>
-        <td>E-mail</td>
-        <td>{{ userData.email }}</td>
-      </tr>
-      <tr *ngIf="userData.gender">
-        <td>Gender</td>
-        <td>{{ userData.gender }}</td>
-      </tr>
-      <tr *ngIf="userData.color">
-        <td>Color</td>
-        <td>{{ userData.color }}</td>
-      </tr>
-    </tbody>
-  </table>
+  <app-table></app-table>
   <div class="tooltipInfo" *ngIf="wasHovered" (click)="closeTooltip()">
     <p>{{ pointInfo.context.x }}</p>
     <p>{{ pointInfo.context.series.name }}: {{ pointInfo.context.y }} mm</p>
   </div>
-  <app-column-chart [chartData1]="columnData1" 
-                    [chartData2]="columnData2" 
+  <app-column-chart [chartData1]="columnData1$ | async" 
+                    [chartData2]="columnData2$ | async" 
                     [wasHovered]="wasHovered"
                     [pointInfo]="pointInfo"
                     (seriesHoverOver)="onSeriesHoverOver($event)">
                     </app-column-chart>
   <hr>
-  <app-line-chart [chartData1]="lineData1" 
-                  [chartData2]="lineData2"
+  <app-line-chart [chartData1]="lineData1$ | async" 
+                  [chartData2]="lineData2$ | async"
                   [wasHovered]="wasHovered"
                   [pointInfo]="pointInfo">
                   </app-line-chart>

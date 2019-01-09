@@ -7,7 +7,7 @@ export interface IColumnChart2 {
   yAxisCol: YAxis;
   legendCol: Legend;
   tooltip: Tooltip;
-  seriesCol: SeriesItem[];
+  series: SeriesItem[];
   plotOptionsCol: PlotOptions;
   data: Data;
 }

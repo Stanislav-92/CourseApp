@@ -5,7 +5,6 @@ export interface IColumnChart1 extends IColumnChart2 {
   tooltip: Tooltip;
   plotOptions1Col: PlotOptions1;
   months: string[];
-  series1Col: SeriesItem1[];
 }
 
 export interface XAxis1 {

@@ -4,7 +4,6 @@ export interface ILineChart1 extends ILineChart2 {
   chart: Chart;
   xAxis1Line: XAxis;
   plotOptions1Line: PlotOptions1;
-  series1Line: SeriesItem1[];
   data: Data;
 }
 
@@ -33,11 +32,6 @@ export interface DataLabels {
 export interface Series {
   animation: boolean;
   pointStart: number;
-}
-
-export interface SeriesItem1 {
-  name: string;
-  data: number[];
 }
 
 export interface Data {
