@@ -5,7 +5,7 @@ export interface ILineChart2 {
   yAxisLine: YAxis;
   legendLine: Legend;
   plotOptionsLine: PlotOptions;
-  seriesLine: SeriesItem[];
+  series: SeriesItem[];
   responsive: Responsive;
 }
 
@@ -47,7 +47,7 @@ export interface Label {
 
 export interface SeriesItem {
   name: string;
-  data: number[] | (null | number)[];
+  data: any[];
 }
 
 export interface Responsive {

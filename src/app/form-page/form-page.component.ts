@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { FormDataService } from './form-data.service';
+import { SharedDataService } from '../shared/shared-data.service';
 
 @Component({
   selector: 'app-form-page',
@@ -14,7 +14,7 @@ export class FormPageComponent implements OnInit {
   allowSubmit = true;
   userForm: FormGroup;
 
-  constructor(private router: Router, private formDataService: FormDataService) { }
+  constructor(private router: Router, private sharedDataService: SharedDataService) { }
 
   ngOnInit() {
     this.userForm = new FormGroup({
@@ -29,7 +29,7 @@ export class FormPageComponent implements OnInit {
 
   onSubmit() {
     if (this.userForm.valid) {
-      this.formDataService.saveFormData(this.userForm.value);
+      this.sharedDataService.saveFormData(this.userForm.value);
       this.router.navigate(['/chart-page']);
     } else {
       this.allowSubmit = false;

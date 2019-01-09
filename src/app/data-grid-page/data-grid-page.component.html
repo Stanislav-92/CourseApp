@@ -1,29 +1,6 @@
 <div class="wrapper">
   <h3>Data Grid Page</h3>
-  <table *ngIf="userData" class="table table-dark userTable">
-    <tbody>
-      <tr>
-        <td>First Name</td>
-        <td>{{ userData.firstname }}</td>
-      </tr>
-      <tr>
-        <td>Last Name</td>
-        <td>{{ userData.lastname }}</td>
-      </tr>
-      <tr>
-        <td>E-mail</td>
-        <td>{{ userData.email }}</td>
-      </tr>
-      <tr *ngIf="userData.gender">
-        <td>Gender</td>
-        <td>{{ userData.gender }}</td>
-      </tr>
-      <tr *ngIf="userData.color">
-        <td>Color</td>
-        <td>{{ userData.color }}</td>
-      </tr>
-    </tbody>
-  </table>
+  <app-table></app-table>
   <app-data-grid [data]="parsedData" *ngIf="parsedData"></app-data-grid>
 </div>
 

@@ -14,6 +14,7 @@ import { DataGridComponent } from './data-grid-page/data-grid/data-grid.componen
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RainfallMetricsPipe } from './pipes/rainfall-metrics.pipe';
 import { FormPageComponent } from './form-page/form-page.component';
+import { TableComponent } from './data-grid-page/table/table.component';
 
 declare var require: any;
 
@@ -26,7 +27,8 @@ declare var require: any;
     DataGridPageComponent,
     DataGridComponent,
     RainfallMetricsPipe,
-    FormPageComponent
+    FormPageComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,

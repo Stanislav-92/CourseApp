@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { FormDataService } from './form-data.service';
+import { SharedDataService } from './shared-data.service';
 
-describe('FormDataService', () => {
+describe('SharedDataService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: FormDataService = TestBed.get(FormDataService);
+    const service: SharedDataService = TestBed.get(SharedDataService);
     expect(service).toBeTruthy();
   });
 });
