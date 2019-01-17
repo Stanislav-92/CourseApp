@@ -15,6 +15,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RainfallMetricsPipe } from './pipes/rainfall-metrics.pipe';
 import { FormPageComponent } from './form-page/form-page.component';
 import { TableComponent } from './data-grid-page/table/table.component';
+import { HighchartsStatic } from 'angular2-highcharts/dist/HighchartsService';
+
+export function highchartsFactory() {
+  const hc = require('highcharts/highstock');
+  const dd = require('highcharts/modules/exporting');
+  dd(hc);
+  return hc;
+}
 
 declare var require: any;
 
@@ -38,9 +46,14 @@ declare var require: any;
     AppRoutingModule,
     MaterialModule,
     BrowserAnimationsModule,
-    ChartModule.forRoot(require('highcharts'))
+    ChartModule
   ],
-  providers: [],
+  providers: [
+    {
+    provide: HighchartsStatic,
+    useFactory: highchartsFactory
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
