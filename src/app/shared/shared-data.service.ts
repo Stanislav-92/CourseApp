@@ -5,6 +5,7 @@ import { IColumnChart2 } from '../interfaces/col2Interface';
 import { ILineChart1 } from '../interfaces/line1Interface';
 import { ILineChart2 } from '../interfaces/line2Interface';
 import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -16,10 +17,11 @@ export class SharedDataService {
   receivedData3: Observable<ILineChart1>;
   receivedData4: Observable<ILineChart2>;
 
-  constructor() { }
+  constructor(private http: HttpClient) {}
 
   saveFormData(data: IFormData) {
     this.formData = data;
+    return this.http.post('/userInfo', this.formData);
   }
 
   saveColumn1(data: Observable<IColumnChart1>) {
