@@ -38,9 +38,13 @@
       </div>
 
       <div class="error">
-        <span *ngIf="!allowSubmit">*The form can't be submitted, as some field(s) is incorrectly filled in, please try again</span>
+        <span *ngIf="!allowSubmit && !userForm.valid">*The form can't be submitted, as some field(s) is incorrectly filled in, please try again</span>
       </div>
 
+      <div class="error">
+        <span *ngIf="duplicate && userForm.valid">*The e-mail address you've entered is already used by another user, please try again</span>
+      </div>
+      
       <button class="btn btn-primary" type="submit">Submit</button>
 
     </form>
