@@ -35,7 +35,6 @@ export class FormPageComponent implements OnInit {
       this.sharedDataService.saveFormData(this.userForm.value)
         .subscribe(res => {
             this.response = res;
-            console.log(this.response);
             if (this.response.status === 'SUCCESS') {
               this.router.navigate(['/chart-page']);
             } else {

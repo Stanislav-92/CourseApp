@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ChartPageService } from '../chart-page.service';
 import { IColumnChart1 } from '../interfaces/col1Interface';
 import { IColumnChart2 } from '../interfaces/col2Interface';
 import { ILineChart1 } from '../interfaces/line1Interface';
 import { ILineChart2 } from '../interfaces/line2Interface';
 import { SharedDataService } from '../shared/shared-data.service';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { map, filter } from 'rxjs/operators';
 
 @Component({
@@ -13,7 +13,7 @@ import { map, filter } from 'rxjs/operators';
   templateUrl: './chart-page.component.html',
   styleUrls: ['./chart-page.component.css']
 })
-export class ChartPageComponent implements OnInit {
+export class ChartPageComponent implements OnInit, OnDestroy {
   columnData1$: Observable<IColumnChart1>;
   columnData2$: Observable<IColumnChart2>;
   lineData1$: Observable<ILineChart1>;
@@ -21,7 +21,20 @@ export class ChartPageComponent implements OnInit {
   wasHovered = false;
   pointInfo;
 
-  constructor(private chartPageService: ChartPageService, private sharedDataService: SharedDataService) { }
+  // WebSockets properties
+  messageFromServer: string;
+  wsSubscription: Subscription;
+
+  constructor(private chartPageService: ChartPageService, private sharedDataService: SharedDataService) {
+
+    this.chartPageService.createObservableSocket('ws://localhost:8085')
+      .subscribe(
+        data => this.messageFromServer = data,
+        err => console.log('err'),
+        () => console.log( 'The observable stream is complete')
+      );
+
+  }
 
   ngOnInit() {
 
@@ -74,7 +87,6 @@ export class ChartPageComponent implements OnInit {
       )
     );
     this.sharedDataService.saveLine2(this.lineData2$);
-
   }
 
   onSeriesHoverOver(tooltip) {
@@ -84,6 +96,20 @@ export class ChartPageComponent implements OnInit {
 
   closeTooltip() {
     this.wasHovered = false;
+  }
+
+  // WebSockets methods
+
+  sendMessageToServer() {
+    this.chartPageService.sendMessage('Hello from client');
+  }
+
+  closeSocket() {
+    this.wsSubscription.unsubscribe();
+  }
+
+  ngOnDestroy() {
+    this.closeSocket();
   }
 
 }
