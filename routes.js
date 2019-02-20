@@ -10,9 +10,9 @@ let line1;
 let line2;
 let db;
 
-MongoClient.connect("mongodb://localhost:27017",  {useNewUrlParser: true, poolSize: 10})
+MongoClient.connect("mongodb://heroku_8z95sck1:702f73gt572chdjmo09ttrh4bs@ds237955.mlab.com:37955/heroku_8z95sck1",  {useNewUrlParser: true, poolSize: 10})
   .then(client => {
-    db = client.db('chartDatabase');
+    db = client.db('heroku_8z95sck1');
     chartsCollection = db.collection('charts');
     chartsCollection.findOne({"chartID.value": "col1"}).then(response => col1 = response).catch(error => console.error(error));
     chartsCollection.findOne({"chartID.value": "col2"}).then(response => col2 = response).catch(error => console.error(error));
