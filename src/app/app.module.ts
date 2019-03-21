@@ -17,14 +17,14 @@ import { FormPageComponent } from './form-page/form-page.component';
 import { TableComponent } from './data-grid-page/table/table.component';
 import { HighchartsStatic } from 'angular2-highcharts/dist/HighchartsService';
 
+declare var require: any;
+
 export function highchartsFactory() {
   const hc = require('highcharts/highstock');
   const dd = require('highcharts/modules/exporting');
   dd(hc);
   return hc;
 }
-
-declare var require: any;
 
 @NgModule({
   declarations: [
