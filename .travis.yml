@@ -1,6 +1,14 @@
 language: node_js
 node_js:
   - "stable"
+addons:
+  apt:
+    packages:
+      - google-chrome-stable
+before_script:
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start &
+  - sleep 3
 script:
   - "npm run lint"
   - "npm run test"
@@ -18,5 +26,3 @@ notifications:
     - stanislawchepa@gmail.com
     on_success: always
     on_failure: always
-addons:
-  chrome: stable
