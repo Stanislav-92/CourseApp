@@ -1,0 +1,20 @@
+language: node_js
+node_js:
+  - "stable"
+script:
+  - "npm run lint"
+  - "npm run test"
+deploy:
+  provider: heroku
+  api_key:
+    secure: 3ec73f50-0a10-4cfe-904e-008b8072924e
+  app: gentle-lowlands-67133
+  on:
+    repo: Stanislav-92/CourseApp
+
+notifications:  
+  email:  
+    recipients:  
+    - stanislawchepa@gmail.com
+    on_success: always
+    on_failure: always
