@@ -12,7 +12,7 @@ describe('SortingService', () => {
 
   it('Should return object', () => {
     const service: SortingService = TestBed.get(SortingService);
-    const value = {active: 'testCategory', direction: 'testSorting'};
+    const value = {active: 'testCategory', direction: 'desc'};
     sessionStorage.setItem('key', JSON.stringify(value));
     expect(typeof service.getConfig()).toBe('object');
   });

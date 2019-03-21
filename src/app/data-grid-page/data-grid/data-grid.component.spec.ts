@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { DataGridComponent } from './data-grid.component';
 import { RainfallMetricsPipe } from '../../pipes/rainfall-metrics.pipe';
-import { MatTableModule, MatTableDataSource } from '@angular/material';
+import { MatTableModule, MatTableDataSource, MatSort, MatSortable } from '@angular/material';
 import { dataCol1 } from 'src/app/constants';
 
 describe('DataGridComponent', () => {
@@ -27,6 +27,8 @@ describe('DataGridComponent', () => {
       displayedColumns: [],
       preparedColumns: []
     };
+    component.sort = new MatSort();
+
     fixture.detectChanges();
   });
 
